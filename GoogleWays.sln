@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW.DAL", "GW.DAL\GW.DAL.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW.Repository", "GW.Repository\GW.Repository.csproj", "{B6C0AA35-18F6-4DA7-81A5-2C5CEFCF04CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW.BLL", "GW.BLL\GW.BLL.csproj", "{FD1CD684-F3AA-4207-8D1A-95F89CF94FC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B6C0AA35-18F6-4DA7-81A5-2C5CEFCF04CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6C0AA35-18F6-4DA7-81A5-2C5CEFCF04CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6C0AA35-18F6-4DA7-81A5-2C5CEFCF04CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD1CD684-F3AA-4207-8D1A-95F89CF94FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1CD684-F3AA-4207-8D1A-95F89CF94FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1CD684-F3AA-4207-8D1A-95F89CF94FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1CD684-F3AA-4207-8D1A-95F89CF94FC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
