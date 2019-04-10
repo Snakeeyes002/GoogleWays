@@ -27,9 +27,7 @@ namespace GW.WebApi.App_Start
 
         private static IContainer RegisterServices(ContainerBuilder builder)
         {
-            //!!!!!!!!!!!!!!!!регистрируем ВСЕ контроллеры
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            //!!!!!!!!!!!!!!!!регистрируем наш  модуль
             builder.RegisterModule(new ServiceModule());
             Container = builder.Build();
 
