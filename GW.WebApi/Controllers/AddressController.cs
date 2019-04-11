@@ -33,7 +33,7 @@ namespace GW.WebApi.Controllers
         {
             try
             {
-                var address = addressService.Get(id);
+                var address = addressService.Find(id);
                 return (address != null) ? Request.CreateResponse(HttpStatusCode.OK, address)
                     : Request.CreateResponse(HttpStatusCode.NotFound, $"Не найден адрес = {id}"); ;
             }

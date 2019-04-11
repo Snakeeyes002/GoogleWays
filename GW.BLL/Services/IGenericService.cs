@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GW.BLL.Services
 {
-    public interface IGenericService<T> where T : class, new()
+    public interface IGenericService<T> 
     {
 
         IEnumerable<T> GetAll();

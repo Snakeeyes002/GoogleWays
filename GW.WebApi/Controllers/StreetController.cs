@@ -32,7 +32,7 @@ namespace GW.WebApi.Controllers
         {
             try
             {
-                var address = streetService.Get(id);
+                var address = streetService.Find(id);
                 return (address != null) ? Request.CreateResponse(HttpStatusCode.OK, address)
                     : Request.CreateResponse(HttpStatusCode.NotFound, $"Не найдена улица = {id}"); ;
             }

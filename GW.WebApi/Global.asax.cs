@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GW.WebApi.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,11 @@ namespace GW.WebApi
     {
         protected void Application_Start()
         {
+            Bootstrapper.Run();
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            GlobalConfiguration.Configuration.Formatters.Remove(
+                GlobalConfiguration.Configuration.Formatters.XmlFormatter);
         }
     }
 }

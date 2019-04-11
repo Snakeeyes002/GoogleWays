@@ -34,7 +34,7 @@ namespace GW.WebApi.Controllers
         {
             try
             {
-                var subdivision = subdivisionService.Get(id);
+                var subdivision = subdivisionService.Find(id);
                 return (subdivision != null) ? Request.CreateResponse(HttpStatusCode.OK, subdivision)
                     : Request.CreateResponse(HttpStatusCode.NotFound, $"Не найден адрес = {id}"); ;
             }
