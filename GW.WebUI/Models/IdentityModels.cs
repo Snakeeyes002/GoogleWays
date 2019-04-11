@@ -21,7 +21,7 @@ namespace GW.WebUI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("Test", throwIfV1Schema: false)
         {
         }
 

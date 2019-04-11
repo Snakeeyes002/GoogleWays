@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GW.BLL.Models;
+using GW.BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,21 @@ namespace GW.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IGenericService<AddressDTO> addressService;
+        public HomeController(IGenericService<AddressDTO> addressService)
+        {
+            this.addressService = addressService;
+        }
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Test()
+        {
+            var model = addressService.GetAll();
+            return View(model);
         }
 
         public ActionResult About()
