@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW.BLL", "GW.BLL\GW.BLL.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW.WebApi", "GW.WebApi\GW.WebApi.csproj", "{5A987868-7D52-4FC6-B5C0-C3CFE292364F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{A24A2F26-1AE3-4E11-9EBB-09E0E18D4030}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW.WebUI", "GW.WebUI\GW.WebUI.csproj", "{39BAF725-6C19-4F90-B727-23BAD8251081}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{5A987868-7D52-4FC6-B5C0-C3CFE292364F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A987868-7D52-4FC6-B5C0-C3CFE292364F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A987868-7D52-4FC6-B5C0-C3CFE292364F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A24A2F26-1AE3-4E11-9EBB-09E0E18D4030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A24A2F26-1AE3-4E11-9EBB-09E0E18D4030}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A24A2F26-1AE3-4E11-9EBB-09E0E18D4030}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A24A2F26-1AE3-4E11-9EBB-09E0E18D4030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39BAF725-6C19-4F90-B727-23BAD8251081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39BAF725-6C19-4F90-B727-23BAD8251081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39BAF725-6C19-4F90-B727-23BAD8251081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39BAF725-6C19-4F90-B727-23BAD8251081}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
