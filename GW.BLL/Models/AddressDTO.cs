@@ -11,10 +11,13 @@ namespace GW.BLL.Models
     {
         [Key]
         public int AddressId { get; set; }
-
-        public int StreetId { get; set; }
-
-        public int SubdivisionId { get; set; }
+        [Required]
+        [StringLength(128)]
+        public string StreetName { get; set; }
+        public string StreetName { get; set; }
+        [Required]
+        [StringLength(64)]
+        public string SubdivisionName { get; set; }
 
         [Required]
         [StringLength(12)]
