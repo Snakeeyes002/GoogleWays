@@ -9,12 +9,19 @@ namespace GW.BLL.Services
 {
     public interface IGenericService<T> where T : class, new()
     {
+
         IEnumerable<T> GetAll();
+
         IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate);
-        T Get(int id);
-        T Add(T obj);
-        T Update(T obj);
-        //T Delete(T obj);
-        T Delete(int id);
+
+        T Find(params object[] keys);
+
+        T Add(T entity);
+
+        T Update(T entity);
+
+        T Delete(T entity);
+
+        T Delete(params object[] keys);
     }
 }

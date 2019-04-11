@@ -4,67 +4,65 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace GW.Repository
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : class, new()
     {
-        DbContext context;
-        IDbSet<T> dbSet;
+
+        private readonly DbContext context;
+        private readonly IDbSet<T> dbSet;
         public GenericRepository(DbContext context)
         {
             this.context = context;
             dbSet = context.Set<T>();
         }
+
         public IEnumerable<T> GetAll()
         {
-            return dbSet;
-        }
-        public T Get(int id)
-        {
-            return dbSet.Find(id);
-        }
-        public void AddOrUpdate(T obj)
-        {
-            try
-            {
-                dbSet.AddOrUpdate(obj);
-            }
-            catch (Exception exc)
-            {
-                throw exc;
-            }
+            return dbSet.AsNoTracking();
         }
 
-        public void Delete(T obj)
+        public void Add(T entity)
         {
-            try
-            {
-                dbSet.Remove(obj);
-            }
-            catch (Exception exc)
-            {
-                throw exc;
-            }
+            dbSet.Add(entity);
+        }
+
+        public void Delete(T entity)
+        {
+            dbSet.Remove(entity);
+        }
+
+        public void Delete(params object[] keys)
+        {
+            var entity = dbSet.Find(keys);
+            dbSet.Remove(entity);
+        }
+
+        public T Find(params object[] keys)
+        {
+            return dbSet.Find(keys);
         }
 
         public IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
-            return dbSet.Where(predicate);
+            return dbSet.Where(predicate).AsNoTracking();
         }
 
-        public int Save()
+        public void SaveChanges()
         {
-            try
-            {
-                return context.SaveChanges();
-            }
-            catch (Exception exc)
-            {
-                throw exc;
-            }
+            context.SaveChanges();
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await context.SaveChangesAsync();
+        }
+
+        public void Update(T entity)
+        {
+            dbSet.AddOrUpdate(entity);
         }
     }
 }

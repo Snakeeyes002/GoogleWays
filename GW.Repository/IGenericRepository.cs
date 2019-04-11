@@ -9,11 +9,23 @@ namespace GW.Repository
 {
     public interface IGenericRepository<T> where T : class, new()
     {
+
         IEnumerable<T> GetAll();
+
         IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate);
-        T Get(int id);
-        void AddOrUpdate(T obj);
-        void Delete(T obj);
-        int Save();
+
+        T Find(params object[] keys);
+
+        void Add(T entity);
+
+        void Delete(T entity);
+
+        void Delete(params object[] keys);
+
+        void Update(T entity);
+
+        void SaveChanges();
+
+        Task SaveChangesAsync();
     }
 }
