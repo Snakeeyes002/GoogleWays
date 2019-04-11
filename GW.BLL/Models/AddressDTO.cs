@@ -14,7 +14,7 @@ namespace GW.BLL.Models
         [Required]
         [StringLength(128)]
         public string StreetName { get; set; }
-        public string StreetName { get; set; }
+      
         [Required]
         [StringLength(64)]
         public string SubdivisionName { get; set; }
