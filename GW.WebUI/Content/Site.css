@@ -1,7 +1,55 @@
-﻿body {
+﻿html {
+    margin: 0px;
+    padding: 0px;
+}
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url("images/background3.jpg");
+    background-repeat: no-repeat;
 }
+header {
+    margin: auto;
+    height: 100px;
+    width: 1140px;
+    max-width: 1920px;
+    min-width: 960px;
+}
+.logo img{
+    height: 70px;
+}
+
+.navbar-nav {
+    font-size: 27px;
+}
+a {
+    color: aliceblue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
