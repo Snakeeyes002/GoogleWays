@@ -3,14 +3,18 @@
     padding: 0px;
 }
 body {
-    padding-top: 50px;
+    padding-top: 15px;
     padding-bottom: 20px;
     background-image: url("images/background3.jpg");
     background-repeat: no-repeat;
+    color: white;
 }
+/*--------------------------------------------------------------------
+header
+--------------------------------------------------------------------*/
 header {
     margin: auto;
-    height: 100px;
+    height: 60px;
     width: 1140px;
     max-width: 1920px;
     min-width: 960px;
@@ -18,14 +22,37 @@ header {
 .logo img{
     height: 70px;
 }
+img {
+    padding-left: 30px;
+}
 
 .navbar-nav {
-    font-size: 27px;
+    font-size: 22px;
 }
 a {
     color: aliceblue;
 }
+.navbar-nav li a {
+    margin-top: 11px;
+    margin-left: 15px;
+    padding: 10px 10px 10px 10px;
+}
+    .navbar-nav li a:hover {
+        border: 1px solid white;
+        background-color: #ffffff00;
+        color: white;
+        padding: 9px 9px 9px 9px;
+    }
+/*--------------------------------------------------------------------
+header
+--------------------------------------------------------------------*/
+/*--------------------------------------------------------------------
+home -> Index
+--------------------------------------------------------------------*/
 
+/*--------------------------------------------------------------------
+home -> Index
+--------------------------------------------------------------------*/
 
 
 
