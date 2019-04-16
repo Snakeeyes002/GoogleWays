@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using Module = Autofac.Module;
 
 namespace GW.BLL.Modules
@@ -53,9 +54,18 @@ namespace GW.BLL.Modules
             builder.RegisterType(typeof(UserInRoleRepository))
                           .As(typeof(IGenericRepository<UserInRole>));
 
+            //UnitOfWorkUserManageer
+
+
 
             builder.RegisterType(typeof(GWContext))
                          .As(typeof(DbContext)).InstancePerLifetimeScope();
+
+            //TransactionScope
+            builder.RegisterType(typeof(TransactionScope))
+                      .As(typeof(TransactionScope))
+                      .WithParameter("scopeOption", TransactionScopeOption.RequiresNew)
+                      .InstancePerLifetimeScope();
         }
     }
 }
