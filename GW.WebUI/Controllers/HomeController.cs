@@ -21,6 +21,7 @@ namespace GW.WebUI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Test()
         {
             var model = addressService.GetAll();
@@ -33,7 +34,7 @@ namespace GW.WebUI.Controllers
 
             return View();
         }
-
+        [Authorize(Roles = "User")]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
