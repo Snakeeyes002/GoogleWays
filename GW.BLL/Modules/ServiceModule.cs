@@ -35,6 +35,24 @@ namespace GW.BLL.Modules
             builder.RegisterType(typeof(SubdivisionRepository))
                           .As(typeof(IGenericRepository<Subdivision>));
 
+            //User
+            builder.RegisterType(typeof(UserService))
+                .As(typeof(IGenericService<UserDTO>));
+            builder.RegisterType(typeof(UserRepository))
+                          .As(typeof(IGenericRepository<User>));
+
+            //Role
+            builder.RegisterType(typeof(RoleService))
+               .As(typeof(IGenericService<RoleDTO>));
+            builder.RegisterType(typeof(RoleRepository))
+                          .As(typeof(IGenericRepository<Role>));
+
+            //UserInRole
+            builder.RegisterType(typeof(UserInRoleService))
+               .As(typeof(IGenericService<UserInRoleDTO>));
+            builder.RegisterType(typeof(UserInRoleRepository))
+                          .As(typeof(IGenericRepository<UserInRole>));
+
 
             builder.RegisterType(typeof(GWContext))
                          .As(typeof(DbContext)).InstancePerLifetimeScope();
