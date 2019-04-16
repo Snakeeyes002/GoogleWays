@@ -12,6 +12,7 @@ namespace GW.DAL.Repositories
     public class AddressRepository : GenericRepository<Address>
     {
         public AddressRepository(DbContext context) : base(context)
-        { }
+        {
+        }
     }
 }

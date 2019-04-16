@@ -12,6 +12,7 @@ namespace GW.DAL.Repositories
     public class SubdivisionRepository : GenericRepository<Subdivision>
     {
         public SubdivisionRepository(DbContext context) : base(context)
-        { }
+        {
+        }
     }
 }

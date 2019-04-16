@@ -12,6 +12,7 @@ namespace GW.DAL.Repositories
     public class StreetRepository : GenericRepository<Street>
     {
         public StreetRepository(DbContext context) : base(context)
-        { }
+        {
+        }
     }
 }
