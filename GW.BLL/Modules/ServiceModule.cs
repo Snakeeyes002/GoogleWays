@@ -55,7 +55,12 @@ namespace GW.BLL.Modules
                           .As(typeof(IGenericRepository<UserInRole>));
 
             //UnitOfWorkUserManageer
+            builder.RegisterType(typeof(UnitOfWorkUserManager))
+                      .As(typeof(IUnitOfWorkUserManager));
 
+            //UnitOfWorkAddress
+            builder.RegisterType(typeof(UnitOfWorkAddress))
+                     .As(typeof(IUnitOfWorkAddress));
 
 
             builder.RegisterType(typeof(GWContext))

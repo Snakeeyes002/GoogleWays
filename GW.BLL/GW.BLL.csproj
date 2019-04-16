@@ -72,11 +72,13 @@
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\GenericService.cs" />
     <Compile Include="Services\IGenericService.cs" />
+    <Compile Include="Services\IUnitOfWorkAddress.cs" />
     <Compile Include="Services\IUnitOfWorkUserManager.cs" />
     <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\StreetService.cs" />
     <Compile Include="Services\SubdivisionService.cs" />
     <Compile Include="Services\IUnitOfWork.cs" />
+    <Compile Include="Services\UnitOfWorkAddress.cs" />
     <Compile Include="Services\UnitOfWorkUserManager.cs" />
     <Compile Include="Services\UserInRoleService.cs" />
     <Compile Include="Services\UserService.cs" />

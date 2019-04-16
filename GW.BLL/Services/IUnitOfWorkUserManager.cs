@@ -10,7 +10,6 @@ namespace GW.BLL.Services
 {
     public interface IUnitOfWorkUserManager : IUnitOfWork
     {
-        TransactionScope Transaction { get; set; }
         IGenericService<UserDTO> UserService { get; set; }
         IGenericService<RoleDTO> RoleService { get; set; }
         IGenericService<UserInRoleDTO> UserInRoleService { get; set; }
