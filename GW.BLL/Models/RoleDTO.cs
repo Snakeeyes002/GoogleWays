@@ -12,8 +12,8 @@ namespace GW.BLL.Models
         [Key]
         public int RoleId { get; set; }
         [Required]
-        [StringLength(50)]
-        public string RoleName { get; set; }
+        [StringLength(128)]
+        public string Title { get; set; }
 
         [StringLength(256)]
         public string Description { get; set; }

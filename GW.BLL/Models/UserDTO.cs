@@ -10,17 +10,22 @@ namespace GW.BLL.Models
     public class UserDTO
     {
         [Key]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
+
         [Required]
         [StringLength(256)]
         public string Email { get; set; }
+
+        public bool EmailConfirmed { get; set; }
+
         [Required]
         [StringLength(256)]
-        public string UserName { get; set; }
-        [StringLength(256)]
         public string PasswordHash { get; set; }
+
         public DateTime? LockoutEndDateUtc { get; set; }
+
         public bool LockoutEnabled { get; set; }
+
         public int AccessFailedCount { get; set; }
     }
 }

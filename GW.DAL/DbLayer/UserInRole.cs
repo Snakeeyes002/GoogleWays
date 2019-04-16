@@ -11,13 +11,9 @@ namespace GW.DAL.DbLayer
     {
         public int UserInRoleId { get; set; }
 
-        [Required]
-        [StringLength(128)]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
-        [Required]
-        [StringLength(128)]
-        public string RoleId { get; set; }
+        public int RoleId { get; set; }
 
         public virtual Role Role { get; set; }
 
