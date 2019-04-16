@@ -19,13 +19,16 @@ header {
     max-width: 1920px;
     min-width: 960px;
 }
-.logo img{
+.logo img {
     height: 70px;
 }
+
 /*img {
     padding-left: 130px;
 }*/
-
+.backgroundimg{
+  
+}
 .navbar-nav {
     font-size: 22px;
 }
