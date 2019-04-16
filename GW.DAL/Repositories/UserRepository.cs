@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace GW.DAL.Repositories
 {
-    public class StreetRepository : GenericRepository<Street>
+    public class UserRepository : GenericRepository<User>
     {
-        public StreetRepository(DbContext context) : base(context)
+        public UserRepository(DbContext context) : base(context)
         {
         }
     }
