@@ -22,9 +22,9 @@ header {
 .logo img{
     height: 70px;
 }
-img {
-    padding-left: 30px;
-}
+/*img {
+    padding-left: 130px;
+}*/
 
 .navbar-nav {
     font-size: 22px;
@@ -49,41 +49,18 @@ header
 /*--------------------------------------------------------------------
 home -> Index
 --------------------------------------------------------------------*/
-
+#map {
+    height: 500px;
+    width: 900px;
+}
 /*--------------------------------------------------------------------
 home -> Index
 --------------------------------------------------------------------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
-
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
