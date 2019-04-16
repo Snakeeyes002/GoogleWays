@@ -22,9 +22,8 @@ namespace GW.BLL.Services
             {
                 cfg.AddExpressionMapping();
                 cfg.CreateMap<UserInRole, UserInRoleDTO>()
-                .ForMember(nameof(UserInRoleDTO.UserName), opt => opt.MapFrom(g => g.User.UserName))
                 .ForMember(nameof(UserInRoleDTO.Email), opt => opt.MapFrom(g => g.User.Email))
-                .ForMember(nameof(UserInRoleDTO.RoleName), opt => opt.MapFrom(g => g.Role.RoleName));
+                .ForMember(nameof(UserInRoleDTO.RoleName), opt => opt.MapFrom(g => g.Role.Title));
                 cfg.CreateMap<UserInRoleDTO, UserInRole>();
             }).CreateMapper();
         }

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW.WebApi", "GW.WebApi\GW.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GW.WebUI", "GW.WebUI\GW.WebUI.csproj", "{39BAF725-6C19-4F90-B727-23BAD8251081}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI-AuthTEST", "WebUI-AuthTEST\WebUI-AuthTEST.csproj", "{012890ED-FB15-4996-9978-A5EFCAA1073C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{39BAF725-6C19-4F90-B727-23BAD8251081}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39BAF725-6C19-4F90-B727-23BAD8251081}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39BAF725-6C19-4F90-B727-23BAD8251081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{012890ED-FB15-4996-9978-A5EFCAA1073C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{012890ED-FB15-4996-9978-A5EFCAA1073C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{012890ED-FB15-4996-9978-A5EFCAA1073C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{012890ED-FB15-4996-9978-A5EFCAA1073C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,23 +12,16 @@ namespace GW.BLL.Models
         [Key]
         public int UserInRoleId { get; set; }
 
-        [Required]
-        [StringLength(128)]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [StringLength(256)]
         public string Email { get; set; }
-        [Required]
-        [StringLength(256)]
-        public string UserName { get; set; }
+
+        public int RoleId { get; set; }
 
         [Required]
         [StringLength(128)]
-        public string RoleId { get; set; }
-
-        [Required]
-        [StringLength(50)]
         public string RoleName { get; set; }
     }
 }

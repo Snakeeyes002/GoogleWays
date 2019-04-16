@@ -15,7 +15,7 @@ namespace GW.DAL.DbLayer
             UserInRoles = new HashSet<UserInRole>();
         }
 
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [StringLength(256)]
@@ -24,9 +24,6 @@ namespace GW.DAL.DbLayer
         public bool EmailConfirmed { get; set; }
 
         [Required]
-        [StringLength(256)]
-        public string UserName { get; set; }
-
         [StringLength(256)]
         public string PasswordHash { get; set; }
 
