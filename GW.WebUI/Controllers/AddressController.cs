@@ -16,6 +16,7 @@ namespace GW.WebUI.Controllers
             this.addressService = addressService;
         }
         // GET: Address
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var model = addressService.GetAll();
@@ -23,6 +24,7 @@ namespace GW.WebUI.Controllers
         }
 
         // GET: Address/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int id)
         {
             var model = addressService.Find(id);
@@ -30,6 +32,7 @@ namespace GW.WebUI.Controllers
         }
 
         // GET: Address/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             var model = new AddressDTO();
@@ -54,6 +57,7 @@ namespace GW.WebUI.Controllers
         }
 
         // GET: Address/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             var model = addressService.Find(id);
@@ -77,6 +81,7 @@ namespace GW.WebUI.Controllers
         }
 
         // GET: Address/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             return View();
