@@ -37,31 +37,35 @@
                 <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
             </footer>
         </div>*@
+    <div class="body2">
+        <img src="~/Content/Images/background3.jpg" class="backgroundimg">
+        <header>
+            <div class="row">
+                <div class="col-md-4 text-center logo"><a href="/"><img src="~/Content/Images/Logo3.png" class="img"></a></div>
+                <div class="col-md-8">
+                    <ul class="nav navbar-nav text-center">
+                        <li>@Html.ActionLink("О программе", "About", "Home")</li>
+                        <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+                        @*<li>@Html.Partial("_LoginPartial")</li>*@
+                        <li>@Html.ActionLink("Войти", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Зарегестрироваться", "Register", "Account")</li>
+                        <li>@Html.ActionLink("Admins", "Index", "Admin")</li>
+                    </ul>
+                </div>
 
-    <header>
-        <div class="row">
-            <div class="col-md-4 text-center logo"><a href="/"><img src="~/Content/Images/Logo3.png" class="img backgroundimg"></a></div>
-            <div class="col-md-8">
-                <ul class="nav navbar-nav text-center">
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
-                    @*<li>@Html.Partial("_LoginPartial")</li>*@
-                    <li>@Html.ActionLink("Войти", "Login", "Account")</li>
-                    <li>@Html.ActionLink("Зарегестрироваться", "Register", "Account")</li>
-                    <li>@Html.ActionLink("Admins", "Index", "Admin")</li>
-                </ul>
+
+
             </div>
+        </header>
 
+        <div class="container body-content">
 
-
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>Тут нужно будет добавить ссылки и краткие контакты</p>
+            </footer>
         </div>
-    </header>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>Тут нужно будет добавить ссылки и краткие контакты</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
