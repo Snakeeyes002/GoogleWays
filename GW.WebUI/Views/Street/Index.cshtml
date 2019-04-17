@@ -7,28 +7,20 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.StreetName)
-        </th>
-        <th></th>
-    </tr>
+<div id="streets">   </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StreetName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StreetId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StreetId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StreetId })
-        </td>
-    </tr>
+@section MyScript
+{
+    <script type="text/javascript">
+        $(function () {
+            window.onload=function () {
+                $('#streets').load("@Url.Action("Streets","Street")", { currentPage: 1 })
+            }
+
+        $('body').on('click', '.mypaging', function () {
+
+            $('#streets').load("@Url.Action("Streets", "Street")", { currentPage: $(this).text() });
+        })
+    });
+    </script>
 }
-
-</table>

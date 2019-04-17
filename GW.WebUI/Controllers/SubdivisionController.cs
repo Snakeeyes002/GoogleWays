@@ -1,5 +1,6 @@
 ﻿using GW.BLL.Models;
 using GW.BLL.Services;
+using GW.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,24 @@ namespace GW.WebUI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            var model = unitOfWorkAddress.SubdivisionService.GetAll();
-            return View(model);
+           
+            return View();
         }
+        [Authorize(Roles = "Admin")]
+        public ActionResult Subdivisions(int currentPage=1)
+        {
+            PagingInfo paging = new PagingInfo
+            {
+                CurrentPage = currentPage,
+                TotalItems = unitOfWorkAddress.SubdivisionService.GetAll().Count(),
+                ItemsPerPage = 10
+            };
+            ViewBag.paging = paging;
 
+            var model = unitOfWorkAddress.SubdivisionService.GetAll().OrderBy(a => a.SubdivisionId)
+                .Skip((paging.CurrentPage - 1) * paging.ItemsPerPage).Take(paging.ItemsPerPage);
+            return PartialView(model);
+        }
         // GET: Subdivision/Details/5
         [Authorize(Roles = "Admin")]
         public ActionResult Details(int id)

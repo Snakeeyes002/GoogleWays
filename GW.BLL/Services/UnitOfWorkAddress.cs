@@ -24,7 +24,7 @@ namespace GW.BLL.Services
             this.Transaction = transaction;
             this.AddressService = addressService;
             this.StreetService = streetService;
-            this.SubdivisionService = SubdivisionService;
+            this.SubdivisionService = subdivisionService;
         }
         public void Commit()
         {

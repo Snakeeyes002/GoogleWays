@@ -1,5 +1,6 @@
 ﻿using GW.BLL.Models;
 using GW.BLL.Services;
+using GW.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,23 @@ namespace GW.WebUI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            var model = unitOfWorkAddress.StreetService.GetAll();
-            return View(model);
+         
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult Streets(int currentPage=1)
+        {
+            PagingInfo paging = new PagingInfo
+            {
+                CurrentPage = currentPage,
+                TotalItems = unitOfWorkAddress.StreetService.GetAll().Count(),
+                ItemsPerPage = 10
+            };
+            ViewBag.paging = paging;
+
+            var model = unitOfWorkAddress.StreetService.GetAll().OrderBy(a => a.StreetName)
+                .Skip((paging.CurrentPage - 1) * paging.ItemsPerPage).Take(paging.ItemsPerPage);
+            return PartialView(model);
         }
 
         // GET: Street/Details/5

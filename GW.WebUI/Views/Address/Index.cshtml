@@ -1,6 +1,4 @@
-﻿@using GW.WebUI.Helpers
-@using GW.WebUI.Models
-@model IEnumerable<GW.BLL.Models.AddressDTO>
+﻿
 
 @{
     ViewBag.Title = "Index";
@@ -9,17 +7,19 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <div id="addresses">   </div>
 
 @section MyScript
 {
     <script type="text/javascript">
-    $(function() {
+        $(function () {
+            window.onload=function () {
+                  $('#addresses').load("@Url.Action("Adresses","Address")", { currentPage: 1 })
+            }
+        
         $('body').on('click', '.mypaging', function () {
-            alert($(this).text())
+          
             $('#addresses').load("@Url.Action("Adresses","Address")", { currentPage: $(this).text() });
         })
     });

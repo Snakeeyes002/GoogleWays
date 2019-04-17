@@ -246,6 +246,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Address\Adresses.cshtml" />
+    <Content Include="Views\Street\Streets.cshtml" />
+    <Content Include="Views\Subdivision\Subdivisions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

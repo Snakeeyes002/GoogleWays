@@ -24,7 +24,7 @@ namespace GW.WebUI.Controllers
            
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Adresses(int currentpage = 1)
         {
             PagingInfo paging = new PagingInfo
