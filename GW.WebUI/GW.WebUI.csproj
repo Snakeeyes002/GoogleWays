@@ -171,7 +171,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StreetController.cs" />
+    <Compile Include="Controllers\SubdivisionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -231,6 +234,15 @@
     <Content Include="Views\Address\Details.cshtml" />
     <Content Include="Views\Address\Edit.cshtml" />
     <Content Include="Views\Address\Create.cshtml" />
+    <Content Include="Views\Street\Index.cshtml" />
+    <Content Include="Views\Street\Details.cshtml" />
+    <Content Include="Views\Street\Create.cshtml" />
+    <Content Include="Views\Street\Edit.cshtml" />
+    <Content Include="Views\Subdivision\Index.cshtml" />
+    <Content Include="Views\Subdivision\Details.cshtml" />
+    <Content Include="Views\Subdivision\Create.cshtml" />
+    <Content Include="Views\Subdivision\Edit.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
