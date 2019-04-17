@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GW.BLL.Models.SubdivisionDTO>
+﻿
 
 @{
     ViewBag.Title = "Index";
@@ -6,29 +6,20 @@
 }
 
 <h2>Index</h2>
+<div id="subdivisions">   </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SubdivisionName)
-        </th>
-        <th></th>
-    </tr>
+@section MyScript
+{
+    <script type="text/javascript">
+        $(function () {
+            window.onload=function () {
+                $('#subdivisions').load("@Url.Action("Subdivisions", "Subdivision")", { currentPage: 1 })
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubdivisionName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SubdivisionId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SubdivisionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SubdivisionId })
-        </td>
-    </tr>
+        $('body').on('click', '.mypaging', function () {
+
+            $('#subdivisions').load("@Url.Action("Subdivisions", "Subdivision")", { currentPage: $(this).text() });
+        })
+    });
+    </script>
 }
-
-</table>

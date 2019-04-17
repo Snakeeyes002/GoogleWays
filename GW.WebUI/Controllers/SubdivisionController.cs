@@ -1,8 +1,10 @@
 ﻿using GW.BLL.Models;
 using GW.BLL.Services;
+using GW.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,25 +12,39 @@ namespace GW.WebUI.Controllers
 {
     public class SubdivisionController : Controller
     {
-        IGenericService<SubdivisionDTO> subdivisionService;
+        private readonly IUnitOfWorkAddress unitOfWorkAddress;
 
-        public SubdivisionController(IGenericService<SubdivisionDTO> subdivisionService)
+        public SubdivisionController(IUnitOfWorkAddress unitOfWorkAddress)
         {
-            this.subdivisionService = subdivisionService;
+            this.unitOfWorkAddress = unitOfWorkAddress;
         }
         // GET: Subdivision
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            var model = subdivisionService.GetAll();
-            return View(model);
+           
+            return View();
         }
+        [Authorize(Roles = "Admin")]
+        public ActionResult Subdivisions(int currentPage=1)
+        {
+            PagingInfo paging = new PagingInfo
+            {
+                CurrentPage = currentPage,
+                TotalItems = unitOfWorkAddress.SubdivisionService.GetAll().Count(),
+                ItemsPerPage = 10
+            };
+            ViewBag.paging = paging;
 
+            var model = unitOfWorkAddress.SubdivisionService.GetAll().OrderBy(a => a.SubdivisionId)
+                .Skip((paging.CurrentPage - 1) * paging.ItemsPerPage).Take(paging.ItemsPerPage);
+            return PartialView(model);
+        }
         // GET: Subdivision/Details/5
         [Authorize(Roles = "Admin")]
         public ActionResult Details(int id)
         {
-            var model = subdivisionService.Find(id);
+            var model = unitOfWorkAddress.SubdivisionService.Find(id);
             return View(model);
         }
 
@@ -48,7 +64,7 @@ namespace GW.WebUI.Controllers
             try
             {
                 // TODO: Add insert logic here
-                subdivisionService.Add(subdivision);
+                unitOfWorkAddress.SubdivisionService.Add(subdivision);
                 return RedirectToAction("Index");
             }
             catch
@@ -61,7 +77,7 @@ namespace GW.WebUI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
-            var model = subdivisionService.Find(id);
+            var model = unitOfWorkAddress.SubdivisionService.Find(id);
             return View(model);
         }
 
@@ -70,16 +86,21 @@ namespace GW.WebUI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(SubdivisionDTO subdivision, FormCollection collection)
         {
-            try
+            using (unitOfWorkAddress.Transaction = new TransactionScope(TransactionScopeOption.RequiresNew))
             {
-                // TODO: Add update logic here
-                subdivisionService.Update(subdivision);
-                return RedirectToAction("Index");
+                try
+                {
+                    // TODO: Add update logic here
+                    unitOfWorkAddress.SubdivisionService.Update(subdivision);
+                    unitOfWorkAddress.Commit();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    unitOfWorkAddress.Rollback();
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         // GET: Subdivision/Delete/5
@@ -97,7 +118,7 @@ namespace GW.WebUI.Controllers
             try
             {
                 // TODO: Add delete logic here
-                subdivisionService.Delete(subdivisionService.Find(id));
+                unitOfWorkAddress.SubdivisionService.Delete(unitOfWorkAddress.SubdivisionService.Find(id));
                 return RedirectToAction("Index");
             }
             catch
