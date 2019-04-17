@@ -29,6 +29,16 @@ header {
 .backgroundimg{
   
 }
+#DivMap {
+    border: 1px solid Black;
+    width: 1200px;
+    height: 500px;
+    margin-top: 30px;
+   
+}
+#boxdiv{
+    color:black;
+}
 .navbar-nav {
     font-size: 22px;
 }
