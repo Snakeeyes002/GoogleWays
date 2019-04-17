@@ -10,22 +10,10 @@ namespace GW.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IGenericService<AddressDTO> addressService;
-        public HomeController(IGenericService<AddressDTO> addressService)
-        {
-            this.addressService = addressService;
-        }
+       
         public ActionResult Index()
         {
             return View();
-        }
-
-        [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public ActionResult Test()
-        {
-            var model = addressService.GetAll();
-            return View(model);
         }
 
         public ActionResult About()
