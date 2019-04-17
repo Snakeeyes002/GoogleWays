@@ -19,13 +19,26 @@ header {
     max-width: 1920px;
     min-width: 960px;
 }
-.logo img{
+.logo img {
     height: 70px;
 }
+
 /*img {
     padding-left: 130px;
 }*/
-
+.backgroundimg{
+  
+}
+#DivMap {
+    border: 1px solid Black;
+    width: 1200px;
+    height: 500px;
+    margin-top: 30px;
+   
+}
+#boxdiv{
+    color:black;
+}
 .navbar-nav {
     font-size: 22px;
 }

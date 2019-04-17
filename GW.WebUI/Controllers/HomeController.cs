@@ -10,18 +10,13 @@ namespace GW.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IGenericService<AddressDTO> addressService;
+        IGenericService<AddressDTO> addressService;
         public HomeController(IGenericService<AddressDTO> addressService)
         {
             this.addressService = addressService;
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
 
-        [HttpGet]
-        public ActionResult Test()
+        public ActionResult Index()
         {
             var model = addressService.GetAll();
             return View(model);
@@ -33,7 +28,7 @@ namespace GW.WebUI.Controllers
 
             return View();
         }
-
+        [Authorize(Roles = "User")]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

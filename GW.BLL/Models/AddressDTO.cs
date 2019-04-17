@@ -34,5 +34,9 @@ namespace GW.BLL.Models
         public decimal Latitude { get; set; }
 
         public decimal Longitude { get; set; }
+        public override string ToString()
+        {
+            return $" {StreetName} {House} ";
+        }
     }
 }

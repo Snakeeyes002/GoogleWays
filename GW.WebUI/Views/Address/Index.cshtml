@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<GW.BLL.Models.AddressDTO>
 
 @{
-    ViewBag.Title = "Test";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Test</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,7 +13,13 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.StreetId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.StreetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubdivisionId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SubdivisionName)
@@ -41,7 +48,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.StreetId)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.StreetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubdivisionId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SubdivisionName)
