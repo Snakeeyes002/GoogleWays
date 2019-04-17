@@ -3,6 +3,7 @@ using GW.BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,18 +11,18 @@ namespace GW.WebUI.Controllers
 {
     public class StreetController : Controller
     {
-        IGenericService<StreetDTO> streetService;
+        private readonly IUnitOfWorkAddress unitOfWorkAddress;
 
-        public StreetController(IGenericService<StreetDTO> streetService)
+        public StreetController(IUnitOfWorkAddress unitOfWorkAddress)
         {
-            this.streetService = streetService;
+            this.unitOfWorkAddress = unitOfWorkAddress;
         }
 
         // GET: Street
         [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            var model = streetService.GetAll();
+            var model = unitOfWorkAddress.StreetService.GetAll();
             return View(model);
         }
 
@@ -29,7 +30,7 @@ namespace GW.WebUI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Details(int id)
         {
-            var model = streetService.Find(id);
+            var model = unitOfWorkAddress.StreetService.Find(id);
             return View(model);
         }
 
@@ -50,7 +51,7 @@ namespace GW.WebUI.Controllers
             try
             {
                 // TODO: Add insert logic here
-                streetService.Add(street);
+                unitOfWorkAddress.StreetService.Add(street);
                 return RedirectToAction("Index");
             }
             catch
@@ -63,7 +64,7 @@ namespace GW.WebUI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
-            var model = streetService.Find(id);
+            var model = unitOfWorkAddress.StreetService.Find(id);
             return View(model);
         }
 
@@ -72,16 +73,21 @@ namespace GW.WebUI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(StreetDTO street, FormCollection collection)
         {
-            try
+            using (unitOfWorkAddress.Transaction = new TransactionScope(TransactionScopeOption.RequiresNew))
             {
-                // TODO: Add update logic here
-                streetService.Update(street);
-                return RedirectToAction("Index");
+                try
+                {
+                    
+                    unitOfWorkAddress.StreetService.Update(street);
+                    unitOfWorkAddress.Commit();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    unitOfWorkAddress.Rollback();
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         // GET: Street/Delete/5
@@ -96,10 +102,11 @@ namespace GW.WebUI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id, FormCollection collection)
         {
+            
             try
             {
                 // TODO: Add delete logic here
-                streetService.Delete(streetService.Find(id));
+                unitOfWorkAddress.StreetService.Delete(unitOfWorkAddress.StreetService.Find(id));
                 return RedirectToAction("Index");
             }
             catch
