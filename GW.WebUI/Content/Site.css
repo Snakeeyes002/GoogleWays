@@ -60,6 +60,12 @@ a {
         color: white;
         padding: 9px 9px 9px 9px;
     }
+
+.username {
+    margin-top: 5px;
+    margin-left: 15px;
+    padding: 10px 10px 10px 180px;
+}
 /*--------------------------------------------------------------------
 header
 --------------------------------------------------------------------*/
@@ -89,48 +95,43 @@ textarea {
     max-width: 280px;
 }
 
+textarea {
+    max-width: 280px;
+}
+
+
 form {
-    border: 1px solid #f2f2f2;
-}
-.myform {
-    
+    border: 1px solid white;
     width: 1140px;
-    margin: auto;
+    padding: 5px;
 }
-.ddl {
-    padding: 10px;
-}
-.ddl label {
-    color: white;
+
+.dl-horizontal dt {
     font-size: 18px;
 }
-.ddl input {
+
+
+.ddddd {
     background-color: #ffffff00;
     width: 260px;
     color: white;
     border-width: 1px;
-} 
-.ddl datalist {
-
 }
-.ddl2 {
-    margin-top: -20px;
-}
-
-.ddad input {
+.dl-horizontal dd input {
     background-color: #ffffff00;
     width: 260px;
     color: white;
     border-width: 1px;
-    margin: 10px 10px 10px 10px;
-    right: auto;
 }
 
-select {
-    background-color: #ffffff00;
-    width: 80px;
-    color: white;
-    border-width: 1px;
-    margin: 10px 10px 10px 10px;
-    right: auto;
+.aas {
+    margin-left: -15px;
+}
+
+.mycol {
+    margin-top: 40px;
+}
+
+.mycol2 {
+    margin-top: 20px;
 }
