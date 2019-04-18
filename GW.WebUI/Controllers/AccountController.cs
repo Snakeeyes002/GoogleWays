@@ -21,12 +21,6 @@ namespace GW.WebUI.Controllers
             this.unitOfWorkUserManager = unitOfWorkUserManager;
         }
         [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public ActionResult Test()
-        {
-            return View();
-        }
-        [HttpGet]
         public ActionResult Index()
         {
             var model = unitOfWorkUserManager.RoleService.GetAll();
@@ -36,6 +30,9 @@ namespace GW.WebUI.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+
             return View();
         }
         [HttpPost]
@@ -70,6 +67,9 @@ namespace GW.WebUI.Controllers
         [HttpGet]
         public ActionResult Register()
         {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+
             return View();
         }
         [HttpPost]
@@ -121,6 +121,14 @@ namespace GW.WebUI.Controllers
                 }
             }
             return View();
+        }
+        [HttpGet]
+        public ActionResult LogOff()
+        {
+            if (User.Identity.IsAuthenticated)
+                FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
