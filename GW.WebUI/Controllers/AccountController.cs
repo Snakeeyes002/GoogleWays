@@ -123,7 +123,7 @@ namespace GW.WebUI.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult LogOff()
+        public ActionResult Sign()
         {
             if (User.Identity.IsAuthenticated)
                 FormsAuthentication.SignOut();

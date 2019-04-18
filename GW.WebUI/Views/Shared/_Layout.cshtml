@@ -55,6 +55,8 @@
                         else
                         {
                             <li>Добро пожаловать @User.Identity.Name</li>
+                            <li>@Html.ActionLink("Выйти", "Sign", "Account")</li>
+
                         }
                         @if (this.User.IsInRole("Admin"))
                         {
