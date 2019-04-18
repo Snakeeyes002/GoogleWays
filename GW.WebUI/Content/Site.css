@@ -125,3 +125,12 @@ form {
     margin: 10px 10px 10px 10px;
     right: auto;
 }
+
+select {
+    background-color: #ffffff00;
+    width: 80px;
+    color: white;
+    border-width: 1px;
+    margin: 10px 10px 10px 10px;
+    right: auto;
+}

@@ -19,6 +19,12 @@
                         <option id="@item.AddressId" value="@item.ToString()"></option>
                     }
                 </datalist>
+                
+                    <label for="cmbCity">City</label>
+                    <select id="cmbCity">
+                        <option value="1">Киев</option>
+                    </select>
+                
             </div>
         </div>
         &nbsp; &nbsp; &nbsp;
@@ -125,6 +131,7 @@
         //    });
         //});
 
+        
         function calculateRoute(rootfrom, rootto) {
 
             var myOptions = {
@@ -164,7 +171,7 @@
             }
             $("#calculate-route").submit(function (event) {
                 event.preventDefault();
-                calculateRoute($("#txtFrom").val(), $("#txtTo").val());
+                calculateRoute($("#cmbCity").text() + $("#txtFrom").val(), $("#cmbCity").text() + $("#txtTo").val());
             });
         });
     </script>
